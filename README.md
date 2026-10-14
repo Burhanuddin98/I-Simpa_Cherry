@@ -14,7 +14,7 @@ Free to download and use. Windows 10 and 11, 64-bit.
 To check that the download is genuine, compare its SHA-256 with the `.sha256` file beside it. In PowerShell:
 
 ```powershell
-Get-FileHash .\I-Simpa-Night-Mode-1.0.0-480da85-win64-setup.exe
+Get-FileHash .\I-Simpa-Night-Mode-1.0.0-cbb613c-win64-setup.exe
 ```
 
 Download only from this page. A copy from anywhere else may have been changed.

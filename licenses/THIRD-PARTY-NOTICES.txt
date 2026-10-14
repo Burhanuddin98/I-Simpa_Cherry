@@ -1,9 +1,12 @@
 I-Simpa Night Mode: third-party notices
 =======================================
 
-Night Mode itself is free software under the GNU General Public License, version 3 (LICENSE).
+Night Mode itself (app.exe) is free to use; all rights reserved (LICENSE.txt beside it).
 This file lists the work of others that app.exe and the solvers beside it carry, and under
-which licence. Written by tools/devtools/third_party_notices.py; do not edit by hand.
+which licence. The solvers, the mesher and the example data are separate works under their
+own licences, which the app's licence does not limit; the GPL-3.0 text is GPL-3.0.txt beside
+the app. The source of the solvers as shipped: https://github.com/Burhanuddin98/I-Simpa_Cherry/releases
+Written by tools/devtools/third_party_notices.py; do not edit by hand.
 
 1. The solvers, the mesher, the fonts and the shipped data
 ----------------------------------------------------------
@@ -32,19 +35,27 @@ The installer and uninstaller (NSIS 3.11)
   Licence: zlib/libpng (NSIS); its LZMA compression module under the Common Public License 1.0 with NSIS's linking exception
   Nullsoft Scriptable Install System (https://nsis.sourceforge.io/), as its COPYING states; the installer's script is tools/installer/night-mode.nsi.
 
+Inflate (reading zipped I-Simpa .proj files), in app.exe
+  Licence: Zlib
+  crates/simpa-core/src/geometry/import/zip.rs follows Mark Adler's puff.c from zlib (Copyright (C) 2002-2013 Mark Adler), altered: rewritten in Rust. This software is provided 'as-is', without any express or implied warranty; see https://github.com/madler/zlib/blob/master/contrib/puff/puff.c.
+
 Fonts: Inter and JetBrains Mono, bundled in the interface
   Licence: OFL-1.1
   The SIL Open Font License texts ship beside them (app/ui/public/licenses/OFL-Inter.txt, OFL-JetBrainsMono.txt) and are printed below.
 
-Example rooms: Elmia hall, Industrial hall and I-Simpa's tutorial projects
+Example rooms: Elmia hall, Industrial hall and I-Simpa's tutorial projects (examples\, tutorials\)
   Licence: GPL-3.0
-  From upstream I-Simpa's tutorial projects (src/isimpa/resources/doc/tutorial); app/src-tauri/examples/ATTRIBUTION.md.
+  From upstream I-Simpa's tutorial projects (src/isimpa/resources/doc/tutorial). Shipped as separate files beside app.exe, not inside it; app/src-tauri/examples/ATTRIBUTION.md.
 
-Example rooms: BRAS CR1, CR2, CR3, CR4
+Example rooms: BRAS CR1, CR2, CR3, CR4 (examples\)
   Licence: CC-BY-SA-4.0
-  Derived from the Benchmark for Room Acoustical Simulation (BRAS), L. Aspoeck, M. Vorlaender, F. Brinkmann, D. Ackermann, S. Weinzierl (RWTH Aachen University, TU Berlin). https://creativecommons.org/licenses/by-sa/4.0/ ; app/src-tauri/examples/ATTRIBUTION.md.
+  Derived from the Benchmark for Room Acoustical Simulation (BRAS), L. Aspoeck, M. Vorlaender, F. Brinkmann, D. Ackermann, S. Weinzierl (RWTH Aachen University, TU Berlin). https://creativecommons.org/licenses/by-sa/4.0/ . Shipped as separate files beside app.exe, not inside it; app/src-tauri/examples/ATTRIBUTION.md.
 
-Dry clip for Listen: speech (the claps, melody and groove beside it are the app's own, GPL-3.0)
+I-Simpa's reference materials and spectra (data\appconst.json)
+  Licence: GPL-3.0-or-later
+  Upstream I-Simpa's src/isimpa/resources/appconst.xml (appmaterials, appspectrums), Copyright (C) 2007-2022 Universite Gustave Eiffel. Shipped as a separate file beside app.exe and read at run time; crates/simpa-core/data/ATTRIBUTION.md.
+
+Dry clip for Listen: speech (the claps, melody and groove beside it are the app's own, free to use with it)
   Licence: Public domain (LibriVox)
   app/src-tauri/examples/clips/speech-lv-hislastbow.provenance.md.
 
