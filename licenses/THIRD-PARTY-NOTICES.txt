@@ -1,7 +1,7 @@
-I-Simpa Night Mode: third-party notices
+I-Simpa Cherry: third-party notices
 =======================================
 
-Night Mode itself (app.exe) is free to use; all rights reserved (LICENSE.txt beside it).
+I-Simpa Cherry itself (app.exe) is free to use; all rights reserved (LICENSE.txt beside it).
 This file lists the work of others that app.exe and the solvers beside it carry, and under
 which licence. The solvers, the mesher and the example data are separate works under their
 own licences, which the app's licence does not limit; the GPL-3.0 text is GPL-3.0.txt beside
@@ -54,6 +54,10 @@ Example rooms: BRAS CR1, CR2, CR3, CR4 (examples\)
 I-Simpa's reference materials and spectra (data\appconst.json)
   Licence: GPL-3.0-or-later
   Upstream I-Simpa's src/isimpa/resources/appconst.xml (appmaterials, appspectrums), Copyright (C) 2007-2022 Universite Gustave Eiffel. Shipped as a separate file beside app.exe and read at run time; crates/simpa-core/data/ATTRIBUTION.md.
+
+BRAS material library: 25 random-incidence materials of CR1-CR4 and the tiles (data\bras-materials.json)
+  Licence: CC-BY-SA-4.0
+  Adapted from the Benchmark for Room Acoustical Simulation (BRAS), version 3: L. Aspoeck, F. Brinkmann, D. Ackermann, S. Weinzierl, and M. Vorlaender, "BRAS - Benchmark for Room Acoustical Simulation," DOI: 10.14279/depositonce-6726.3, Apr. 2020 (RWTH Aachen University, TU Berlin). https://creativecommons.org/licenses/by-sa/4.0/ . Absorption and scattering per third-octave band, 50 Hz to 20 kHz, from BRAS's _csv/initial_estimates (tools/data/bras_materials.py). Shipped as a separate file beside app.exe and read at run time; crates/simpa-core/data/ATTRIBUTION.md.
 
 Dry clip for Listen: speech (the claps, melody and groove beside it are the app's own, free to use with it)
   Licence: Public domain (LibriVox)

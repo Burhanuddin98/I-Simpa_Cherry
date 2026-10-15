@@ -1,6 +1,6 @@
 # Licences and source of the bundled programs
 
-The I-Simpa Night Mode application (`app.exe`) is free to download and use; all rights reserved. The installer
+The I-Simpa Cherry application (`app.exe`) is free to download and use; all rights reserved. The installer
 also puts these separate programs in its `solvers\` folder. Each is under its own licence.
 
 | Program | What it is | Licence |

@@ -1,4 +1,4 @@
-# I-Simpa Night Mode
+# I-Simpa Cherry
 
 A new desktop application for room-acoustics simulation, built on the solvers of
 [I-Simpa](https://github.com/Universite-Gustave-Eiffel/I-Simpa) (Université Gustave Eiffel): SPPS particle
@@ -14,7 +14,7 @@ Free to download and use. Windows 10 and 11, 64-bit.
 To check that the download is genuine, compare its SHA-256 with the `.sha256` file beside it. In PowerShell:
 
 ```powershell
-Get-FileHash .\I-Simpa-Night-Mode-1.1.0-a5c3111-win64-setup.exe
+Get-FileHash .\I-Simpa-Cherry-1.1.1-d83de89-win64-setup.exe
 ```
 
 Download only from this page. A copy from anywhere else may have been changed.
@@ -24,12 +24,12 @@ Download only from this page. A copy from anywhere else may have been changed.
 1. Run the setup file. It installs for your Windows user only and needs no administrator rights.
 2. Windows SmartScreen may say *"Windows protected your PC"*, because the installer is not yet code-signed.
    Click **More info**, then **Run anyway**.
-3. Open **I-Simpa Night Mode** from the Start menu. `.simpa` project files open in it with a double-click.
+3. Open **I-Simpa Cherry** from the Start menu. `.simpa` project files open in it with a double-click.
 
 The installer brings everything the app needs: the solvers and the Microsoft C++ runtime they use. If your PC
 lacks Microsoft's WebView2 runtime, it downloads and installs it (Windows 11 always has it).
 
-To uninstall: Windows Settings, Apps, I-Simpa Night Mode. Your own projects and results are never removed.
+To uninstall: Windows Settings, Apps, I-Simpa Cherry. Your own projects and results are never removed.
 
 ## Requirements
 
@@ -73,8 +73,8 @@ version from **Help, About** and, for a failed run, the run's console text.
 
 ## Licence
 
-The I-Simpa Night Mode application is free to download and use. Its source code is not published; all rights
+The I-Simpa Cherry application is free to download and use. Its source code is not published; all rights
 reserved. It ships separate programs under their own licences, I-Simpa's solvers under the GPL-3.0 among them.
 Their notices, and the source for each, are in [`licenses/`](licenses/).
 
-I-Simpa Night Mode is not made or endorsed by Université Gustave Eiffel.
+I-Simpa Cherry is not made or endorsed by Université Gustave Eiffel.
