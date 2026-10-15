@@ -14,7 +14,7 @@ Free to download and use. Windows 10 and 11, 64-bit.
 To check that the download is genuine, compare its SHA-256 with the `.sha256` file beside it. In PowerShell:
 
 ```powershell
-Get-FileHash .\I-Simpa-Night-Mode-1.0.0-cbb613c-win64-setup.exe
+Get-FileHash .\I-Simpa-Night-Mode-1.1.0-a5c3111-win64-setup.exe
 ```
 
 Download only from this page. A copy from anywhere else may have been changed.
@@ -50,10 +50,12 @@ On the start screen, open **Tutorial 1** (a small teaching room) or one of the e
 - **Geometry:** a model check before any run (watertight, self-intersections, flipped normals, open edges,
   units), repair to a new file, surface groups, sound-level planes at any angle, fitting zones.
 - **Materials:** absorption, scattering, transmission and the reflection law per band, with I-Simpa's reference
-  library.
+  library, the BRAS benchmark materials in a library window, and CATT material-list import.
 - **Sources and receivers:** placed on any face; spectra with dB(A) entry; directivity; receiver groups.
 - **Simulate:** SPPS, TCR or SPPS on the GPU; memory and run-time forecasts; a checklist that stops a run that
   cannot succeed; background runs with a live console.
+- **Measured rooms:** a room's own measured impulse responses laid over the simulated decays, with the error per
+  parameter.
 - **Results:** SPL, G, EDT, T15, T20, T30, C50, C80, D50, Ts, STI and dB(A) to ISO 3382-1 and IEC 60268-16;
   sound maps and parameter maps per face; difference maps; particle playback; listening through the room;
   CSV, JSON, PNG and WAV export.
