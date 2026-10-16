@@ -163,9 +163,11 @@ h2.label { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; co
 #footer li { padding: 0 1.1rem; border-left: 1px solid var(--rule); line-height: 1.2; margin: .3rem 0; }
 #footer li:first-child { padding-left: 0; border-left: 0; }
 
-/* Sections fade up as they scroll in; browsers without scroll timelines show them static */
+/* Sections fade up as they scroll in, on desktops only; browsers without scroll timelines, phones and touch screens
+   show them static (scroll-driven animations have crashed Chrome's GPU process on Android) */
+@media (max-width: 820px), (pointer: coarse) { .wide img { box-shadow: none; } }
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 1151px) and (pointer: fine) {
     .fade-up > .inner, .spotlights .content .inner { animation: fadeup linear both; animation-timeline: view(); animation-range: entry 0% entry 40%; }
   }
 }
@@ -233,7 +235,7 @@ h2.label { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; co
       </div></div>
     </section>
     <section>
-      <div class="image"><video src="teaser.mp4" poster="poster.jpg" autoplay muted loop playsinline aria-label="A two-source run in a hall, from model check to results"></video></div>
+      <div class="image"><video id="teaser" src="teaser.mp4" poster="poster.jpg" muted loop playsinline preload="none" aria-label="A two-source run in a hall, from model check to results"></video></div>
       <div class="content"><div class="inner">
         <h2 class="label">Workflow</h2>
         <p><strong>Five steps:</strong> Geometry, Materials, Sources &amp; receivers, Simulate, Results. The tabs along the top are the whole workflow, and each one says whether it is done. Three tutorial rooms are built in.</p>
@@ -384,12 +386,14 @@ h2.label { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; co
   var BG = '#a8151d', FADE = 'rgba(168, 21, 29, 0.16)', MONO = '11px "Cascadia Mono", Consolas, monospace';
   var shape = [[0.04, 0.30], [0.50, 0.02], [0.97, 0.14], [0.93, 0.86], [0.50, 0.98], [0.04, 0.70]];
   var HANDLE = 7, drag = -1, hover = -1, downAt = null, moved = false;
-  var PERIOD = 3.4, ABSORB = 0.78, AIR = 0.25, N = 320;
+  // Phones and touch screens get a lighter simulation: fewer particles, 1x pixels, 30 frames a second.
+  var LIGHT = !!(window.matchMedia && window.matchMedia('(max-width: 1150px), (pointer: coarse)').matches);
+  var PERIOD = 3.4, ABSORB = 0.78, AIR = 0.25, N = LIGHT ? 120 : 320;
   var W, H, wide, box, eg, room, walls, src, rcv, R, speed, parts = [], echo = [], clock = 0, burstAt = 0;
   var textEnd = intro.querySelector('.inner .actions') || intro.querySelector('.inner');
 
   function layout(keepSource) {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2), rel = null;
+    var dpr = LIGHT ? 1 : Math.min(window.devicePixelRatio || 1, 2), rel = null;
     if (keepSource && box) rel = [(src[0] - box.x) / box.w, (src[1] - box.y) / box.h];
     W = intro.clientWidth; H = intro.clientHeight;
     var below = textEnd.getBoundingClientRect().bottom - intro.getBoundingClientRect().top;
@@ -549,6 +553,7 @@ h2.label { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; co
   var running = false, last = 0, onScreen = true;
   function frame(ts) {
     if (!running) return;
+    if (LIGHT && last && ts - last < 32) { requestAnimationFrame(frame); return; }
     var dt = last ? Math.min((ts - last) / 1000, 0.05) : 1 / 60;
     last = ts; step(dt); draw();
     requestAnimationFrame(frame);
@@ -565,6 +570,8 @@ h2.label { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; co
   window.addEventListener('load', function () { layout(true); burst(); settle(reduce ? 40 : 20); });
   var rt;
   window.addEventListener('resize', function () {
+    // A phone's address bar showing or hiding changes only the height: keep the canvas, do not rebuild it.
+    if (intro.clientWidth === W && Math.abs(intro.clientHeight - H) < 2) return;
     clearTimeout(rt);
     rt = setTimeout(function () { layout(true); burst(); settle(reduce ? 40 : 20); }, 150);
   });
@@ -619,5 +626,14 @@ h2.label { font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; co
 </script>
 
 
+<script>
+/* The teaser plays by itself on desktops; on phones and touch screens it waits for a tap. */
+(function () {
+  var v = document.getElementById('teaser'); if (!v) return;
+  var light = window.matchMedia && window.matchMedia('(max-width: 1150px), (pointer: coarse)').matches;
+  if (light) { v.controls = true; return; }
+  v.preload = 'auto'; v.autoplay = true; var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; });
+})();
+</script>
 </body>
 </html>
