@@ -11,7 +11,7 @@ also puts these separate programs in its `solvers\` folder. Each is under its ow
 | `msvcp140.dll`, `vcruntime140.dll`, `vcruntime140_1.dll`, `vcomp140.dll` | Microsoft Visual C++ runtime | Microsoft Visual C++ redistributable terms |
 
 **Their complete source** is published with every release, beside the installer: the file
-`night-mode-<version>-solver-source.zip` on the [releases page](https://github.com/Burhanuddin98/I-Simpa_Cherry/releases).
+`i-simpa-cherry-<version>-solver-source.zip` on the [releases page](https://github.com/Burhanuddin98/I-Simpa_Cherry/releases).
 It holds I-Simpa at the exact commit the solvers are built from (tag `v1.4.0_snapshot_14_01_2026`, commit
 `929a5c8e5f590b189f29155faeff8670f3699479`), the two patches applied to it (also in [`solver-source/`](solver-source/)),
 the source of `spps-gpu.exe`, TetGen 1.5.0 as released by WIAS, the build scripts, and instructions to build each

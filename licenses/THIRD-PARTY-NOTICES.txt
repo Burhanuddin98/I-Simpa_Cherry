@@ -33,7 +33,7 @@ Microsoft Visual C++ runtime (solvers\msvcp140.dll, vcruntime140.dll, vcruntime1
 
 The installer and uninstaller (NSIS 3.11)
   Licence: zlib/libpng (NSIS); its LZMA compression module under the Common Public License 1.0 with NSIS's linking exception
-  Nullsoft Scriptable Install System (https://nsis.sourceforge.io/), as its COPYING states; the installer's script is tools/installer/night-mode.nsi.
+  Nullsoft Scriptable Install System (https://nsis.sourceforge.io/), as its COPYING states; the installer's script is tools/installer/i-simpa-cherry.nsi.
 
 Inflate (reading zipped I-Simpa .proj files), in app.exe
   Licence: Zlib
